@@ -1,4 +1,7 @@
 package Classes;
 
-public class ControlPanel {
+import Interfaces.Components;
+import Interfaces.Globals;
+
+public class ControlPanel implements Components, Globals {
 }

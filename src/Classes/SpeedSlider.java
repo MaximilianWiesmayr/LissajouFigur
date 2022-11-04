@@ -1,4 +1,7 @@
 package Classes;
 
-public class SpeedSlider {
+import Interfaces.Components;
+import Interfaces.Globals;
+
+public class SpeedSlider extends Slider implements Components, Globals {
 }

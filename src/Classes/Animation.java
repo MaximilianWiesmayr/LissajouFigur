@@ -1,4 +1,6 @@
 package Classes;
 
-public class Animation {
+import Interfaces.Globals;
+
+public class Animation implements Globals {
 }
