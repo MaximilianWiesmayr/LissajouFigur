@@ -11,7 +11,7 @@ public class Figure extends JPanel implements Globals {
     private int fx;
     private int fy;
 
-    public Figure(int phi, int fx, int fy) {
+    public Figure(int fx, int fy, int phi) {
         this.phi = phi;
         this.fx = fx;
         this.fy = fy;
@@ -20,20 +20,18 @@ public class Figure extends JPanel implements Globals {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        int fa = fx;
-        int fb = fy;
 
         int cw = super.getWidth() / 2;
         int ch = super.getHeight() / 2;
-        int tmax = fa * fb * 360;
+        int tmax = fx * fy * 360;
 
         g.clearRect(0, 0, super.getWidth(), super.getHeight());
         //g.moveTo(cw + (cw - 2) * u(0, fa), ch + (ch - 2) * u(phi, fb)); // Feder zum Startpunkt
-        double xbef = cw + (cw - 2) * u(0, fa);
-        double ybef = ch + (ch - 2) * u(this.phi, fb);
+        double xbef = cw + (cw - 2) * u(0, fx);
+        double ybef = ch + (ch - 2) * u(this.phi, fy);
         for (var t = 1; t <= tmax; t++) {
-            double xnew = cw + (cw - 2) * u(t, fa);
-            double ynew = ch + (ch - 2) * u(t + this.phi, fb);
+            double xnew = cw + (cw - 2) * u(t, fx);
+            double ynew = ch + (ch - 2) * u(t + this.phi, fy);
             g.drawLine((int) xbef, (int) ybef, (int) xnew,(int)  ynew);
             xbef = xnew;
             ybef = ynew;
@@ -58,14 +56,5 @@ public class Figure extends JPanel implements Globals {
     public void setPhi(int phi){
         this.phi = phi;
     }
-
-    public void changeFX(int newFX){
-        fx = newFX;
-    }
-
-    public void changeFY(int newFY){
-        fy = newFY;
-    }
-
 
 }

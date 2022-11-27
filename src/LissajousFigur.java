@@ -17,6 +17,7 @@ public class LissajousFigur extends JFrame implements Components, Globals {
         setVisible(true);
 
     }
+
     public static void main(String[] args) {
         new LissajousFigur();
     }
