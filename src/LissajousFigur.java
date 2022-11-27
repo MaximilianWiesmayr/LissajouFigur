@@ -1,16 +1,19 @@
-import Classes.Animation;
 import Interfaces.Components;
 import Interfaces.Globals;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LissajousFigur extends JFrame implements Components, Globals {
 
     public LissajousFigur(){
-        super("Lissa");
+        super("LissajousFigur");
+        setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,500);
-        add(new Animation());    //statusBar from Components
+        setResizable(false);
+        add(controlPanel, java.awt.BorderLayout.NORTH);    //controlPanel from Components
+        add(animation, java.awt.BorderLayout.CENTER);  //animation from Components
         setVisible(true);
 
     }

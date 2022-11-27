@@ -3,15 +3,17 @@ package Classes;
 import Interfaces.Components;
 import Interfaces.Globals;
 
-public class ControlPanel implements Components, Globals {
+import javax.swing.*;
+
+public class ControlPanel extends JPanel implements Components, Globals {
     Slider fxSlider;
     Slider fySlider;
     Slider speedSlider;
 
     public ControlPanel(){
-        fxSlider = new FSlider(80);
-        fySlider = new FSlider(80);
-        speedSlider = new SpeedSlider(80);
+        fxSlider = new FSlider(RANGE_FXSLIDER);
+        fySlider = new FSlider(RANGE_FYSLIDER);
+        speedSlider = new SpeedSlider(RANGE_SPEED);
     }
 
 }
