@@ -11,7 +11,7 @@ public class LissajouFigur extends JFrame implements Components, Globals {
         super("Lissa");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,500);
-        //add(new Animation());    //statusBar from Components
+        add(new Animation());    //statusBar from Components
         setVisible(true);
 
     }
