@@ -11,24 +11,44 @@ public class Animation extends JPanel implements Globals {
 
     Figure figur;
     int phi = 0;
-
     CardLayout cardLayout;
+    JPanel CardPanel;
+
     public Animation() {
         cardLayout = new CardLayout();
-        this.setLayout(new CardLayout());
+        CardPanel = new JPanel(cardLayout);
 
-        figur = new Figure(0, 4, 3);
-        this.add(figur);
+        this.setLayout(new BorderLayout());
+        this.add(CardPanel);
 
+
+
+        //figur = new Figure(0, 4, 3);
+        //this.add(figur);
+
+        this.redrawFigure(4,3);
+        //CardPanel.add(this.figur = new Figure(4, 3, phi));
+        this.revalidate();
+
+
+    }
+
+    public void redrawFigure(int x, int y) {
+        this.phi = 0;
+        for ( ;phi <= 360 * 3 * 4; this.phi++) {
+            CardPanel.add(new Figure(x, y, phi));
+        }
+
+        CardPanel.revalidate();
+        this.revalidate();
         Timer timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(phi);
-                if (phi >= 360 * 3 * 4) {
-                    phi = 0;
-                }
-                figur.setPhi(phi++);
-                figur.repaint();
+                System.out.println("sdf");
+                CardLayout cl = (CardLayout)CardPanel.getLayout();
+
+                cl.next(CardPanel);
+
             }});
 
         timer.start();

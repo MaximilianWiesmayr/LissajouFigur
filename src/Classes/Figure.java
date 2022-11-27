@@ -20,8 +20,8 @@ public class Figure extends JPanel implements Globals {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        int fa = 3;
-        int fb = 4;
+        int fa = fx;
+        int fb = fy;
 
         int cw = super.getWidth() / 2;
         int ch = super.getHeight() / 2;
