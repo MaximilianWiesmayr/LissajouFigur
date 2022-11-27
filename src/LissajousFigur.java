@@ -1,13 +1,12 @@
 import Classes.Animation;
 import Interfaces.Components;
 import Interfaces.Globals;
-import java.awt.BorderLayout;
+
 import javax.swing.*;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-public class LissajouFigur extends JFrame implements Components, Globals {
+public class LissajousFigur extends JFrame implements Components, Globals {
 
-    public LissajouFigur(){
+    public LissajousFigur(){
         super("Lissa");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,500);
@@ -16,6 +15,6 @@ public class LissajouFigur extends JFrame implements Components, Globals {
 
     }
     public static void main(String[] args) {
-        new LissajouFigur();
+        new LissajousFigur();
     }
 }
