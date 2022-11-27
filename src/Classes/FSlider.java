@@ -23,10 +23,10 @@ public class FSlider extends Slider {
     @Override
     public void stateChanged(ChangeEvent e) {
         if(coordinate == 'x'){
-            animation.setFX(((Slider)e.getSource()).getValue());
+            animation.setFX(getValue());
             animation.redrawFigure();
         }else if(coordinate == 'y'){
-            animation.setFY(((Slider)e.getSource()).getValue());
+            animation.setFY(getValue());
             animation.redrawFigure();
         }
     }

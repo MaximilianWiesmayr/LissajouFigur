@@ -3,6 +3,7 @@ package Classes;
 import Interfaces.Components;
 import Interfaces.Globals;
 
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -19,6 +20,7 @@ public class SpeedSlider extends Slider implements Components, Globals, ChangeLi
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        animation.setDelay(max - ((Slider)e.getSource()).getValue());
+        //controlPanel.changeSpeedLabel();
+        animation.setDelay(max - getValue());
     }
 }

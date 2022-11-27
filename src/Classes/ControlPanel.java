@@ -19,9 +19,24 @@ public class ControlPanel extends JPanel implements Components, Globals {
 
         this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
         this.setLayout(new GridLayout(1, 3));
-        this.add(fxSlider);
-        this.add(fySlider);
-        this.add(speedSlider);
+        this.add(createPanel("fx: ", fxSlider));
+        this.add(createPanel("fy: ", fySlider));
+        this.add(createPanel("Speed: " + speedSlider.getValue(), speedSlider));
+
+    }
+
+    private JPanel createPanel(String labelText, Slider slider){
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel(labelText);
+        panel.add(label);
+        panel.add(slider);
+        return panel;
+    }
+
+    public void changeSpeedLabel(){
+        this.getComponent(2);
+        this.remove(2);
+        this.add(createPanel("Speed: " + speedSlider.getValue(), speedSlider));
     }
 
 }
