@@ -4,10 +4,10 @@ import Interfaces.Globals;
 import javax.swing.*;
 import java.awt.*;
 
-public class LissajousFigur extends JFrame implements Components, Globals {
+public class Lissajous extends JFrame implements Components, Globals {
 
-    public LissajousFigur(){
-        super("LissajousFigur");
+    public Lissajous(){
+        super("Lissajous Figure");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,500);
@@ -19,6 +19,6 @@ public class LissajousFigur extends JFrame implements Components, Globals {
     }
 
     public static void main(String[] args) {
-        new LissajousFigur();
+        new Lissajous();
     }
 }

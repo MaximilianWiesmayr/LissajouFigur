@@ -14,6 +14,8 @@ public class Animation extends JPanel implements Globals {
     CardLayout cardLayout;
     JPanel CardPanel;
 
+    Timer timer;
+
     public Animation() {
         cardLayout = new CardLayout();
         CardPanel = new JPanel(cardLayout);
@@ -23,7 +25,7 @@ public class Animation extends JPanel implements Globals {
 
         this.redrawFigure(3,4);
 
-        Timer timer = new Timer(10, new ActionListener() {
+        timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.next(CardPanel);
@@ -37,5 +39,11 @@ public class Animation extends JPanel implements Globals {
             System.out.println(phi);
         }
 
+    }
+
+    public void setSpeed(int delay){
+        System.out.println("delay: " + delay);
+        timer.setDelay(delay);
+        timer.restart();
     }
 }

@@ -5,18 +5,18 @@ import Interfaces.Globals;
 
 import javax.swing.event.ChangeEvent;
 
-public class SpeedSlider extends Slider implements Globals {
+public class SpeedSlider extends Slider {
     public SpeedSlider(int range) {
         super(range);
+        createSlider();
+    }
+
+    private void createSlider() {
+        this.setPaintTicks(true);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-
-    }
-
-    public int getValue(){
-
-        return 0;
+        animation.setSpeed(((Slider)e.getSource()).getValue());
     }
 }

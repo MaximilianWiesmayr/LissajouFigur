@@ -16,12 +16,7 @@ public class Slider extends JSlider implements Components, Globals, ChangeListen
 
     @Override
     public void stateChanged(ChangeEvent e) {
-
-    }
-
-    public int getValue(){
-
-        return 0;
+        System.out.println("I am in");
     }
 
 
