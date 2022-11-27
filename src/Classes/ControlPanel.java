@@ -13,9 +13,9 @@ public class ControlPanel extends JPanel implements Components, Globals {
 
 
     public ControlPanel(){
-        fxSlider = new FSlider(RANGE_FXSLIDER, 'x');
-        fySlider = new FSlider(RANGE_FYSLIDER, 'y');
-        speedSlider = new SpeedSlider(RANGE_SPEED);
+        fxSlider = new FSlider(1, RANGE_FXSLIDER, 'x');
+        fySlider = new FSlider(1, RANGE_FYSLIDER, 'y');
+        speedSlider = new SpeedSlider(0, RANGE_SPEED);
 
         this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
         this.setLayout(new GridLayout(1, 3));

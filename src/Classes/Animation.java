@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 
 public class Animation extends JPanel implements Globals {
 
-    Figure figur;
-    int phi = 0;
+    int fx = 3;
+    int fy = 4;
     CardLayout cardLayout;
     JPanel CardPanel;
 
@@ -23,7 +23,7 @@ public class Animation extends JPanel implements Globals {
         this.setLayout(new BorderLayout());
         this.add(CardPanel);
 
-        this.redrawFigure(3,4);
+        this.redrawFigure();
 
         timer = new Timer(10, new ActionListener() {
             @Override
@@ -33,15 +33,22 @@ public class Animation extends JPanel implements Globals {
         timer.start();
     }
 
-    public void redrawFigure(int x, int y) {
+    public void redrawFigure() {
         for ( int phi = 0;phi <= 360; phi++) {
-            CardPanel.add(new Figure(x, y, phi));
+            CardPanel.add(new Figure(this.fx, this.fy, phi));
             System.out.println(phi);
         }
 
     }
 
-    public void setSpeed(int delay){
+    public void setFX(int fx){
+        this.fx = fx;
+    }
+    public void setFY(int fy){
+        this.fy = fy;
+    }
+
+    public void setDelay(int delay){
         System.out.println("delay: " + delay);
         timer.setDelay(delay);
         timer.restart();

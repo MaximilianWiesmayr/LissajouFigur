@@ -8,15 +8,23 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class Slider extends JSlider implements Components, Globals, ChangeListener {
-    int range;
+    int min;
+    int max;
 
-    public Slider(int range){
-        this.range = range;
+    public Slider(int min, int max){
+        super(min, max);
+        this.min = min;
+        this.max = max;
+        addChangeListener(this);
+        createSlider();
+    }
+
+    private void createSlider() {
+        this.setPaintTicks(true);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        System.out.println("I am in");
     }
 
 

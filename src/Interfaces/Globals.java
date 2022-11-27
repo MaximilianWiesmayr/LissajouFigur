@@ -9,8 +9,8 @@ public interface Globals {
 
     Color COLOR_COORDINATESYSTEM = new Color(0,255,0);
 
-    int RANGE_SPEED = 40;
-    int RANGE_FXSLIDER = 40;
-    int RANGE_FYSLIDER = 40;
+    int RANGE_SPEED = 400;
+    int RANGE_FXSLIDER = 7;
+    int RANGE_FYSLIDER = 7;
 
 }

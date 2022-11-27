@@ -4,19 +4,21 @@ import Interfaces.Components;
 import Interfaces.Globals;
 
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class SpeedSlider extends Slider {
-    public SpeedSlider(int range) {
-        super(range);
+public class SpeedSlider extends Slider implements Components, Globals, ChangeListener {
+    public SpeedSlider(int min, int max) {
+        super(min, max);
         createSlider();
     }
 
     private void createSlider() {
-        this.setPaintTicks(true);
+        this.setMajorTickSpacing(40);
+        this.setMinorTickSpacing(20);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        animation.setSpeed(((Slider)e.getSource()).getValue());
+        animation.setDelay(max - ((Slider)e.getSource()).getValue());
     }
 }
