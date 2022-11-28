@@ -4,6 +4,10 @@ import java.awt.*;
 
 import static java.awt.Font.PLAIN;
 
+/**
+ * Has all Constants that are needed for the JFrame
+ * @version 2022-11-28
+ */
 public interface Globals {
     Font LABEL_FONT = new Font("Arial", PLAIN, 12);
 

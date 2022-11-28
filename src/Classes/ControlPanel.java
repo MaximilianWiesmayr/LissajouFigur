@@ -8,6 +8,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Has all specifications for the ControlPanel
+ * @version 2022-11-28
+ */
 public class ControlPanel extends JPanel implements Components, Globals {
     Slider fxSlider;
     Slider fySlider;
@@ -19,7 +23,9 @@ public class ControlPanel extends JPanel implements Components, Globals {
 
     JComboBox jcWaveform;
 
-
+    /**
+     * Combines all Elements that are visible in the ControlPanel
+     */
     public ControlPanel(){
         fxSlider = new FSlider(1, RANGE_FXSLIDER, 'x');
         fySlider = new FSlider(1, RANGE_FYSLIDER, 'y');
@@ -56,6 +62,11 @@ public class ControlPanel extends JPanel implements Components, Globals {
 
     }
 
+    /**
+     * Generates a Panel which includes the labelText and the slider
+     * @param labelText The Text that sits to the left of the Sliders
+     * @param slider The Slider itself
+     */
     private JPanel createPanel(String labelText, Slider slider){
         JPanel panel = new JPanel();
         JLabel label = new JLabel(labelText);
@@ -65,6 +76,9 @@ public class ControlPanel extends JPanel implements Components, Globals {
         return panel;
     }
 
+    /**
+     * Updates the Speed Value in our UI
+     */
     public void changeSpeedLabel(){
         JLabel speedLabel = (JLabel) speedPanel.getComponent(0);
         speedLabel.setText("Speed: " + speedSlider.getValue());
