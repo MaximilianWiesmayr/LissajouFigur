@@ -20,8 +20,8 @@ public class Figure extends JPanel implements Components, Globals {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        int fx = controlPanel.fxSlider.getValue();
-        int fy = controlPanel.fySlider.getValue();
+        int fx = animation.fx;
+        int fy = animation.fy;
 
         int cw = super.getWidth() / 2;
         int ch = super.getHeight() / 2;

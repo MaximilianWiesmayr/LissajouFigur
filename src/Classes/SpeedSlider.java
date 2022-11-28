@@ -11,9 +11,7 @@ import java.util.TimerTask;
 
 public class SpeedSlider extends Slider implements Components, Globals, ChangeListener {
 
-    long startTime = System.currentTimeMillis();
-    Timer timer = new Timer();
-    int lastValue = 50;
+    int lastValue = -5;
     public SpeedSlider(int min, int max) {
         super(min, max);
         createSlider();
@@ -27,24 +25,13 @@ public class SpeedSlider extends Slider implements Components, Globals, ChangeLi
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        timer.schedule(
-                new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        if(lastValue != getValue()){
-                            callAnimation();
-                        }
-                        lastValue = getValue();
-                    }
-                },
-                1000
-        );
-
+        if(!getValueIsAdjusting()){
+            callAnimation();
+        }
         controlPanel.changeSpeedLabel();
     }
 
     private void callAnimation() {
         animation.setDelay(max - getValue());
-        startTime = System.currentTimeMillis();
     }
 }
