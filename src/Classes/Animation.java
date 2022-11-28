@@ -36,7 +36,7 @@ public class Animation extends JPanel implements Globals {
     public void redrawFigure() {
         for ( int phi = 0;phi <= 360; phi++) {
             CardPanel.add(new Figure(this.fx, this.fy, phi));
-            System.out.println(phi);
+            //System.out.println(phi);
         }
 
     }
