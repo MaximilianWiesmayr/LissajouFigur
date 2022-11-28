@@ -49,7 +49,7 @@ public class Animation extends JPanel implements Globals {
                 lf = new LissajousFigurTriangle();
                 break;
             case 3:
-                //lf = new LissajousFigurSaw();
+                lf = new LissajousFigurSaw();
                 break;
         }
         for (int phi = 0; phi <figures.length; phi++) {
