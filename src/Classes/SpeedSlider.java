@@ -16,11 +16,12 @@ public class SpeedSlider extends Slider implements Components, Globals, ChangeLi
     private void createSlider() {
         this.setMajorTickSpacing(40);
         this.setMinorTickSpacing(20);
+        this.setFont(LABEL_FONT);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        //controlPanel.changeSpeedLabel();
+        controlPanel.changeSpeedLabel();
         animation.setDelay(max - getValue());
     }
 }
