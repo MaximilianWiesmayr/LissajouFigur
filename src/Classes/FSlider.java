@@ -24,10 +24,8 @@ public class FSlider extends Slider {
     public void stateChanged(ChangeEvent e) {
         if(coordinate == 'x'){
             animation.setFX(getValue());
-            animation.redrawFigure();
         }else if(coordinate == 'y'){
             animation.setFY(getValue());
-            animation.redrawFigure();
         }
     }
 }

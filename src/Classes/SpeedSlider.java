@@ -22,6 +22,9 @@ public class SpeedSlider extends Slider implements Components, Globals, ChangeLi
     @Override
     public void stateChanged(ChangeEvent e) {
         controlPanel.changeSpeedLabel();
-        animation.setDelay(max - getValue());
+        if (!getValueIsAdjusting()) {
+            animation.setDelay(max - getValue());
+
+        }
     }
 }
