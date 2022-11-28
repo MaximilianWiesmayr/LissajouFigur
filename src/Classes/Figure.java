@@ -1,5 +1,6 @@
 package Classes;
 
+import Interfaces.Components;
 import Interfaces.Globals;
 
 import javax.swing.*;
@@ -8,20 +9,19 @@ import java.awt.*;
 public class Figure extends JPanel implements Globals {
 
     private int phi;
-    private int fx;
-    private int fy;
     private LissajousFigur waveform;
 
-    public Figure(int fx, int fy, int phi) {
+    public Figure(int phi) {
         this.phi = phi;
-        this.fx = fx;
-        this.fy = fy;
         waveform = new LissajousFigur();
     }
 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
+        int fx = Components.controlPanel.fxSlider.getValue();
+        int fy = Components.controlPanel.fySlider.getValue();
 
         int cw = super.getWidth() / 2;
         int ch = super.getHeight() / 2;
@@ -38,10 +38,13 @@ public class Figure extends JPanel implements Globals {
             xbef = xnew;
             ybef = ynew;
         }
+        this.paintAxes(g,cw,ch);
     }
 
-    private void paintAxes(Graphics g){
-
+    private void paintAxes(Graphics g, int cw, int ch){
+        g.setColor(Globals.COLOR_AXES);
+        g.drawLine(0, ch, super.getWidth(), ch);
+        g.drawLine(cw,0, cw, super.getHeight());
     }
 
     public void setPhi(int phi){

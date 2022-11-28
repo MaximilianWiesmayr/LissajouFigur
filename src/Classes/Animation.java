@@ -9,36 +9,30 @@ import java.awt.event.ActionListener;
 
 public class Animation extends JPanel implements Globals {
 
-    int fx = 3;
+    int fx = 4;
     int fy = 4;
     CardLayout cardLayout;
-    JPanel CardPanel;
+    JPanel cardPanel;
 
     Timer timer;
 
     public Animation() {
         cardLayout = new CardLayout();
-        CardPanel = new JPanel(cardLayout);
+        cardPanel = new JPanel(cardLayout);
 
         this.setLayout(new BorderLayout());
-        this.add(CardPanel);
+        this.add(cardPanel);
 
-        this.redrawFigure();
-
-        timer = new Timer(10, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.next(CardPanel);
-            }});
-        timer.start();
-    }
-
-    public void redrawFigure() {
-        for ( int phi = 0;phi <= 360; phi++) {
-            CardPanel.add(new Figure(this.fx, this.fy, phi));
-            System.out.println(phi);
+        for ( int phi = 0;phi < 360; phi++) {
+            cardPanel.add(new Figure(phi));
         }
 
+        timer = new Timer(Globals.RANGE_SPEED/2, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.next(cardPanel);
+            }});
+        timer.start();
     }
 
     public void setFX(int fx){
@@ -49,8 +43,11 @@ public class Animation extends JPanel implements Globals {
     }
 
     public void setDelay(int delay){
-        System.out.println("delay: " + delay);
         timer.setDelay(delay);
-        timer.restart();
+        if (delay == Globals.RANGE_SPEED) {
+            timer.stop();
+        } else {
+            timer.restart();
+        }
     }
 }
