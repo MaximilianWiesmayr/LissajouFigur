@@ -14,6 +14,7 @@ public class Animation extends JPanel implements Globals {
     CardLayout cardLayout;
     JPanel cardPanel;
 
+
     Timer timer;
 
     public Animation() {
@@ -23,7 +24,8 @@ public class Animation extends JPanel implements Globals {
         this.setLayout(new BorderLayout());
         this.add(cardPanel);
 
-        for ( int phi = 0;phi < 360; phi++) {
+
+        for (int phi = 0; phi < 360*7*7; phi++) {
             cardPanel.add(new Figure(phi));
         }
 
