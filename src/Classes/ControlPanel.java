@@ -25,7 +25,7 @@ public class ControlPanel extends JPanel implements Components, Globals {
         fyPanel = createPanel("fy: ", fySlider);
         speedPanel = createPanel("Speed: " + speedSlider.getValue(), speedSlider);
 
-        this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
+        //this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
         this.setLayout(new GridLayout(1, 3));
         this.add(fxPanel);
         this.add(fyPanel);
