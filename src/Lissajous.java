@@ -10,7 +10,7 @@ public class Lissajous extends JFrame implements Components, Globals {
         super("Lissajous Figure");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1000,1000);
+        setSize(700,700);
         setResizable(false);
         add(controlPanel, java.awt.BorderLayout.NORTH);    //controlPanel from Components
         add(animation, java.awt.BorderLayout.CENTER);  //animation from Components
