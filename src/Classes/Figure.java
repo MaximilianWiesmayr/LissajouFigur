@@ -45,4 +45,8 @@ public class Figure extends JPanel implements Components, Globals {
         g.drawLine(cw,0, cw, super.getHeight());
     }
 
+    public void setWaveform(LissajousFigur lf) {
+        waveform = lf;
+    }
+
 }

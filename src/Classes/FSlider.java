@@ -36,6 +36,5 @@ public class FSlider extends Slider {
         } else if (coordinate == 'y') {
             animation.setFY(getValue());
         }
-        System.out.println(getValue());
     }
 }

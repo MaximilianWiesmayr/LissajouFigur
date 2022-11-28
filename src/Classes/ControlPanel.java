@@ -5,6 +5,8 @@ import Interfaces.Globals;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ControlPanel extends JPanel implements Components, Globals {
     Slider fxSlider;
@@ -14,6 +16,8 @@ public class ControlPanel extends JPanel implements Components, Globals {
     JPanel fxPanel;
     JPanel fyPanel;
     JPanel speedPanel;
+
+    JComboBox jcWaveform;
 
 
     public ControlPanel(){
@@ -25,11 +29,30 @@ public class ControlPanel extends JPanel implements Components, Globals {
         fyPanel = createPanel("fy: ", fySlider);
         speedPanel = createPanel("Speed: " + speedSlider.getValue(), speedSlider);
 
+        String[] waveformStr = { "Sin", "Square", "Triangle", "Saw"};
+
+        JLabel jlWave = new JLabel("WaveForm: ", SwingConstants.RIGHT);
+        jlWave.setFont(LABEL_FONT);
+
+        jcWaveform = new JComboBox(waveformStr);
+        jcWaveform.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComboBox cb = (JComboBox)e.getSource();
+                int waveformIndex = cb.getSelectedIndex();
+                animation.setWaveform(waveformIndex);
+
+
+            }
+        });
+
         //this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
-        this.setLayout(new GridLayout(1, 3));
+        this.setLayout(new GridLayout(2, 3));
         this.add(fxPanel);
         this.add(fyPanel);
         this.add(speedPanel);
+        this.add(jlWave);
+        this.add(jcWaveform);
 
     }
 
