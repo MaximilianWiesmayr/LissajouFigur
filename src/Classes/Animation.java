@@ -7,6 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Animates multiple Lissajous Figure with the help of a CardLayout
+ * @author Sebastian Zettl
+ * @version 2022-11-28
+ */
 public class Animation extends JPanel implements Globals {
 
     int fx = 4;
@@ -18,6 +23,9 @@ public class Animation extends JPanel implements Globals {
 
     Timer timer;
 
+    /**
+     * Konstruktor für Animation
+     */
     public Animation() {
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
@@ -39,6 +47,10 @@ public class Animation extends JPanel implements Globals {
         timer.start();
     }
 
+    /**
+     * Allows the Waveform to be set
+     * @param type The type of Wafeform, this corresponds to the index in the dropdown
+     */
     public void setWaveform(int type) {
         LissajousFigur lf = new LissajousFigur();
         switch (type){
@@ -59,13 +71,26 @@ public class Animation extends JPanel implements Globals {
 
     }
 
+    /**
+     * Setter for fx
+     * @param fx new fx value
+     */
     public void setFX(int fx){
         this.fx = fx;
     }
+
+    /**
+     * Setter for fy
+     * @param fy new fy Value
+     */
     public void setFY(int fy){
         this.fy = fy;
     }
 
+    /**
+     * Sets the Speed of the Animation
+     * @param delay The new Speed (In Milliseconds)
+     */
     public void setDelay(int delay){
         timer.setDelay(delay);
         if (delay == Globals.RANGE_SPEED) {

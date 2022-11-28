@@ -1,7 +1,18 @@
 package Classes;
 
+/**
+ * Calculation Method for the Waveform. THis is for Saw
+ * @author Sebastian Zettl
+ * @version 2022-11-28
+ */
 public class LissajousFigurSaw extends LissajousFigur {
 
+    /**
+     * Calculates the point for Saw Wave
+     * @param t Time
+     * @param f Frequency
+     * @return The Point of the Wave
+     */
     public double u(int t, int f) {
         double u = super.u(t,f);
         double period = (2*Math.PI)/f;
